@@ -4,7 +4,10 @@ include_once './include/logado.php';
 include_once './include/conexao.php';
 include_once './include/header.php';
 
-$sql 'SELECT pt.ProdutoID as ProdutoID, pt.Nome as NomePT, '
+$sql = 'SELECT p.ProdutoID as ProdutoID, pr.Nome AS Produto, p.DataProducao as DataProducao, p.DataEntrega AS DataEntrega
+FROM producao p
+INNER JOIN produtos AS pr ON p.ProdutoID = pr.ProdutoID';
+$resultado = mysqli_query($conn, $sql);
 ?>
   <main>
 
@@ -17,23 +20,27 @@ $sql 'SELECT pt.ProdutoID as ProdutoID, pt.Nome as NomePT, '
               <th>ID</th>
               <th>Produto</th>
               <th>Quantidade</th>
-              <th>Data</th>
+              <th>Data de Produção</th>
+              <th>Data de Entrega</th>
               <th>Ações</th>
             </tr>
           </thead>
           <tbody>
-            <?php?>
+            <?php while($dado = mysqli_fetch_assoc($resultado)){?>
               <tr>
-                <td><?php?></td>
-                <td><?php?></td>
-                <td><?php?></td>
-                <td><?php?></td>
+                <td><?php echo $dado['ProdutoID']?></td>
+                <td><?php echo $dado['Produto']?></td>
+                <td><?php echo'Não tem'?></td>
+                <td><?php echo $dado['DataProducao']?></td>
+                <td><?php echo $dado['DataEntrega']?></td>
                 <td>
                   <a href="#" class="btn btn-edit">Editar</a>
                   <a href="#" class="btn btn-delete">Excluir</a>
                 </td>
               </tr>
-            <?php?>
+            <?php
+            }
+            ?>
             
           </tbody>
         </table>

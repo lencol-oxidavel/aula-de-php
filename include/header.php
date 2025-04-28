@@ -21,6 +21,7 @@
         <a href="./lista-producao.php">Produção</a>
         <a href="./lista-usuarios.php">Usuários</a>
         <a href="./relatorios.php">Relatório</a>
+        <a href="./login.php">Login</a>
         <a href="./logoff.php">Sair</a>
       </nav>
   </header>

@@ -4,7 +4,8 @@ include_once './include/logado.php';
 include_once './include/conexao.php';
 include_once './include/header.php';
 
-$sql = 'SELECT p.ProdutoID AS pID, p.Nome AS Nome, cg.Nome AS Categoria, p.Preco AS Preco
+$sql = 'SELECT p.ProdutoID AS ProdutoID, p.Nome AS Nome, cg.Nome AS Categoria, p.Preco AS Preco
+FROM produtos as p
 INNER JOIN categorias as cg ON cg.CategoriaID = p.CategoriaID';
 $resultado = mysqli_query($conn, $sql)
 
@@ -30,10 +31,10 @@ $resultado = mysqli_query($conn, $sql)
           while($dado = mysqli_fetch_assoc($resultado) ) {
           ?>
             <tr>
-              <td><?php echo['pID']?></td>
-              <td><?php?></td>
-              <td><?php?></td>
-              <td><?php?></td>
+              <td><?php echo  $dado['ProdutoID']?></td>
+              <td><?php echo $dado['Nome']?></td>
+              <td><?php echo $dado['Categoria']?></td>
+              <td><?php echo $dado['Preco']?></td>
               <td>
                 <a href="#" class="btn btn-edit">Editar</a>
                 <a href="#" class="btn btn-delete">Excluir</a>

@@ -4,7 +4,7 @@ include_once './include/logado.php';
 include_once './include/conexao.php';
 include_once './include/header.php';
 $sql = 'SELECT * FROM cargos';
-  $resultado = mysqli_query($conn, $sql);
+$resultado = mysqli_query($conn, $sql);
 
 ?>
   <main>
@@ -28,7 +28,7 @@ $sql = 'SELECT * FROM cargos';
               <tr>
                 <td><?php echo $dado['CargoID']?></td>
                 <td><?php echo $dado['Nome']?></td>
-                <td><?php echo 'R$ '.$dado['TetoSalarial']?></td>
+                <td><?php echo 'R$: '.$dado['TetoSalarial']?></td>
                 <td>
                   <a href="#" class="btn btn-edit">Editar</a>
                   <a href="#" class="btn btn-delete">Excluir</a>

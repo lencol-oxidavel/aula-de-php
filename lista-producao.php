@@ -4,8 +4,8 @@ include_once './include/logado.php';
 include_once './include/conexao.php';
 include_once './include/header.php';
 
-$sql = 'SELECT p.ProdutoID as ProdutoID, pr.Nome AS Produto, p.DataProducao as DataProducao, p.DataEntrega AS DataEntrega
-FROM producao p
+$sql = 'SELECT p.ProducaoID as ProdutoID, pr.Nome AS Produto, p.DataProducao as DataProducao, p.DataEntrega AS DataEntrega
+FROM producao as p
 INNER JOIN produtos AS pr ON p.ProdutoID = pr.ProdutoID';
 $resultado = mysqli_query($conn, $sql);
 ?>

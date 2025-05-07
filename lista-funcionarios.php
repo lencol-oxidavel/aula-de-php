@@ -1,15 +1,15 @@
-  <?php 
-  // include dos arquivox
-  include_once './include/logado.php';
-  include_once './include/conexao.php';
-  include_once './include/header.php';
+<?php 
+// include dos arquivox
+include_once './include/logado.php';
+include_once './include/conexao.php';
+include_once './include/header.php';
 
-  $sql = 'SELECT f.FuncionarioID, f.Nome, cg.Nome AS Cargo, s.Nome AS Setor
+$sql = "SELECT f.FuncionarioID, f.Nome, cg.Nome AS Cargo, s.Nome AS Setor
 FROM funcionarios AS f
 INNER JOIN cargos AS cg ON cg.CargoID = f.CargoID
-INNER JOIN setor AS s ON s.SetorID = f.SetorID';
-  $resultado = mysqli_query($conn, $sql)
-  ?>
+INNER JOIN setor AS s ON s.SetorID = f.SetorID";
+$resultado = mysqli_query($conn, $sql);
+?>
 
   <main>
 

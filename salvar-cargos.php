@@ -3,8 +3,6 @@
 include_once './include/logado.php';
 include_once './include/conexao.php';
 include_once './include/header.php';
-
-
 ?>
   <main>
 
@@ -12,8 +10,9 @@ include_once './include/header.php';
    <div id="cargos" class="tela">
     <form class="crud-form" action="./action/cargos.php" method="post">
       <h2>Cadastro de Cargos</h2>
-      <input type="text" placeholder="Nome do Cargo">
-      <input type="number" placeholder="Teto Salarial">
+      <input type="hidden" name="acao" value="salvar">
+      <input type="text" name="Nome" placeholder="Nome do Cargo" required>
+      <input type="number" name="TetoSalarial" placeholder="Teto Salarial" required>
       <button type="submit">Salvar</button>
     </form>
   </div>

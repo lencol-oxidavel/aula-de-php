@@ -4,7 +4,7 @@ include_once './include/logado.php';
 include_once './include/conexao.php';
 include_once './include/header.php';
 
-$sql = 'SELECT SetorID, Nome, Andar, Cor FROM setor';
+$sql = 'SELECT * FROM setor';
 $resultado = mysqli_query($conn, $sql);
 ?>
   <main>

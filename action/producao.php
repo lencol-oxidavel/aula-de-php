@@ -9,7 +9,11 @@ $acao = $_GET['acao'];
 // validacao
 switch ($acao) {
     case 'value':
-        # code...
+        // capturar os dado
+        // montar o sql dinamico 
+        // executar o sql mysqli_query
+        // redirecionar para pagina de listagemn
+        
         break;
     
     default:

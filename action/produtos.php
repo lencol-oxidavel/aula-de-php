@@ -23,7 +23,13 @@ switch ($acao) {
         // executar o sql mysqli_query
         $stmt = $conn->prepare($sql);
 
+        $stmt->bind_param('sddsis', $Nome, $Preco, $Peso, $Descricao, $Categoria, $Referencia);
+        $stmt->execute();
+        $stmt->close();
+
         // redirecionar para pagina de listagemn
+        header('Location: ../lista-produtos.php');
+        exit();
         break;
     
     default:

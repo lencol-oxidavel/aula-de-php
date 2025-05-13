@@ -26,7 +26,7 @@ switch ($acao) {
         }
         $stmt->close();
         
-        header("Locate: ../lista-producao.php");
+        header("Location: ../lista-producao.php");
         exit();
         break;
     

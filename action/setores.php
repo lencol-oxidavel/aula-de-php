@@ -27,7 +27,7 @@ switch ($acao) {
             // redirecionar para pagina de listagemn
             header('Location: ../lista-setores.php');
             exit();
-        break;
+            break;
     
     default:
         # code...

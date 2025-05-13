@@ -1,3 +1,3 @@
 <?php
-header("Locate: ../lista-producao.php")
+header("Location: ../lista-producao.php")
 ?>

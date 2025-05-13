@@ -4,9 +4,10 @@ include_once './include/logado.php';
 include_once './include/conexao.php';
 include_once './include/header.php';
 
-$sql = 'SELECT p.ProducaoID as ProdutoID, pr.Nome AS Produto, p.DataProducao as DataProducao, p.DataEntrega AS DataEntrega
-FROM producao as p
-INNER JOIN produtos AS pr ON p.ProdutoID = pr.ProdutoID';
+$sql = 'SELECT p.ProducaoID as ProdutoID, pr.Nome AS Produto, p.DataProducao as DataProducao, p.DataEntrega AS DataEntrega, count(*) AS Quantidade
+FROM producao as p 
+INNER JOIN produtos AS pr ON p.ProdutoID = pr.ProdutoID
+GROUP BY p.ProdutoID, pr.Nome, p.DataProducao, p.DataEntrega';
 $resultado = mysqli_query($conn, $sql);
 ?>
   <main>
@@ -30,7 +31,7 @@ $resultado = mysqli_query($conn, $sql);
               <tr>
                 <td><?php echo $dado['ProdutoID']?></td>
                 <td><?php echo $dado['Produto']?></td>
-                <td><?php echo'Não tem'?></td>
+                <td><?php echo $dado['Quantidade']?></td>
                 <td><?php echo $dado['DataProducao']?></td>
                 <td><?php echo $dado['DataEntrega']?></td>
                 <td>

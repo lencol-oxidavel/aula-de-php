@@ -21,11 +21,11 @@ $resultado = mysqli_query($conn, $sql);
           <textarea placeholder="Descrição" name="Descricao" required></textarea>
           <select name="Categoria" required>
             <option value="" disabled selected>Categoria</option>
-            <?php while($dado = mysqli_fetch_assoc($resultado)) {?>
+            <?php while($dado = mysqli_fetch_assoc($resultado)) { ?>
             <option value="<?php $dado['CategoriaID']?>"><?php echo $dado['Nome']?></option>
             <?php } ?>
           </select>
-          <input type="text" name="Referencia" required>
+          <input type="text" name="Referencia" placeholder="Referência" required>
           <button type="submit">Salvar</button>
         </form>
       </div>

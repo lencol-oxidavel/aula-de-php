@@ -19,7 +19,7 @@ switch ($acao) {
         $sql = "INSERT INTO producao (FuncionarioID, ProdutoID, DataProducao, DataEntrega) VALUES (?, ?, ?, ?)";
         // executar o sql mysqli_query
         $stmt = $conn->prepare($sql);
-        // redirecionar para pagina de listagemn
+        // redirecionar para pagina de listagem
         for ($x = 0; $x < $Quantidade; $x++) {
         $stmt->bind_param('iiss', $Funcionarios, $Produtos, $DataProducao, $DataEntrega);
         $stmt->execute();

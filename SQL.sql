@@ -188,3 +188,18 @@ INSERT INTO `producao` (`ProducaoID`,`ProdutoID`,`FuncionarioID`,`ClienteID`,`Da
  (19,11,8,4,'2020-11-10',NULL),
  (20,13,9,4,'2020-11-10',NULL),
  (21,12,5,4,'2020-06-15','2020-09-17');
+
+ CREATE TABLE `usuarios` (
+  `UsuarioID` int(11) NOT NULL,
+  `Nome` varchar(255) NOT NULL,
+  `Senha` varchar(255) NOT NULL,
+  `Email` varchar(255) NOT NULL,
+  `Usuario` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Despejando dados para a tabela `usuarios`
+--
+
+INSERT INTO `usuarios` (`UsuarioID`, `Nome`, `Senha`, `Email`, `Usuario`) VALUES
+(1, 'Everton Pereira Valeriano', '123456', 'everton@gmail.com', 'everton');

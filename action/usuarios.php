@@ -12,7 +12,7 @@ switch ($acao) {
         // capturar os dado
         // montar o sql dinamico 
         // executar o sql mysqli_query
-        // redirecionar para pagina de listagemn
+        // redirecionar para pagina de listagem
         break;
     
     default:

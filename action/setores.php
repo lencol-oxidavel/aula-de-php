@@ -24,7 +24,7 @@ switch ($acao) {
             $stmt->execute();
             $stmt->close();
 
-            // redirecionar para pagina de listagemn
+            // redirecionar para pagina de listagem
             header('Location: ../lista-setores.php');
             exit();
             break;

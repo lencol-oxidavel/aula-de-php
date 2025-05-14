@@ -1,5 +1,5 @@
 <?php 
-// include dos arquivox
+// include dos arquivos
 include_once './include/logado.php';
 include_once './include/conexao.php';
 include_once './include/header.php';
@@ -35,6 +35,6 @@ $resultado = mysqli_query($conn, $sql);
   </main>
 
   <?php 
-  // include dos arquivox
+  // include dos arquivos
   include_once './include/footer.php';
   ?>

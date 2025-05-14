@@ -1,5 +1,5 @@
 <?php 
-// include dos arquivox
+// include dos arquivos
 include_once './include/logado.php';
 include_once './include/conexao.php';
 include_once './include/header.php';
@@ -27,8 +27,8 @@ $sql = 'SELECT * FROM categorias';
               <td><?php echo $dado['CategoriaID']?></td>
               <td><?php echo $dado['Nome']?></td>
               <td>
-                <a href="#" class="btn btn-edit">Editar</a>
-                <a href="#" class="btn btn-delete">Excluir</a>
+                <a href="./salvar-categorias.php?id=<?php echo $dado['CategoriaID']?>" class="btn btn-edit">Editar</a>
+                <a href="./action/categorias.php?acao=excluir&id=<?php echo $dado['CategoriaID']?>" class="btn btn-delete">Excluir</a>
               </td>
             </tr>
             <?php

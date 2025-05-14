@@ -28,7 +28,46 @@ switch ($acao) {
         header('Location: ../lista-cargos.php');
         exit();
     break;
+    case 'editar':
+        // capturar os dado
+        $Nome = $_POST['Nome'];
+        $TetoSalarial = $_POST['TetoSalarial'];
+        $CargoID = $_POST['CargoID'];
+        // montar o sql dinamico 
+        $sql = "UPDATE cargos
+        SET Nome = ?, TetoSalarial = ?
+        WHERE CargoID = ?;";
+
+        // executar o sql mysqli_query
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bind_param('sdi', $Nome, $TetoSalarial, $CargoID);
+        $stmt->execute();
+        $stmt->close();
+
+        // redirecionar para pagina de listagem
+        header('Location: ../lista-cargos.php');
+        exit();
+    break;
     
+    case 'excluir':
+        // capturar os dado
+        $CargoID = $_GET['id'];
+
+        // montar o sql dinamico 
+        $sql = "DELETE FROM cargos
+        WHERE CargoID = ?";
+
+        // executar o sql mysqli_query
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bind_param('i', $CargoID);
+        $stmt->execute();
+        $stmt->close();
+        // redirecionar para pagina de listagem
+        header('Location: ../lista-cargos.php');
+        exit();
+    break;  
     default:
         # code...
         break;

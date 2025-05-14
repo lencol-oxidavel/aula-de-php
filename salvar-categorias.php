@@ -23,8 +23,8 @@ if (isset($_GET['id'])) {
           <?php if ($dado): ?>
             <input type="hidden" name="CategoriaID" value="<?php echo $dado['CategoriaID']; ?>">
           <?php endif; ?>
-          <input type="text" name="Nome" placeholder="Nome da Categoria" required>
-          <textarea placeholder="Descrição" name="Descricao" required></textarea>
+          <input type="text" name="Nome" placeholder="Nome da Categoria" value="<?php echo $dado ? $dado['Nome'] : ''?>" required>
+          <textarea placeholder="Descrição" name="Descricao" required><?php echo $dado ? $dado['Descricao'] : ''?></textarea>
           <button type="submit">Salvar</button>
         </form>
       </div>

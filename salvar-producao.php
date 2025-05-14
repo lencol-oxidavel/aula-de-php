@@ -10,6 +10,16 @@ $sql2 = "SELECT ProdutoID, Nome FROM produtos";
 $resultado1 = mysqli_query($conn, $sql1);
 $resultado2 = mysqli_query($conn, $sql2);
 
+$dado = null;
+if (isset($_GET['id'])) {
+    $id = (int) $_GET['id'];
+    $sql = "SELECT * FROM Producao WHERE ProducaoID = $id";
+    $resultado = mysqli_query($conn, $sql);
+    if ($resultado && mysqli_num_rows($resultado) > 0) {
+        $dado = mysqli_fetch_assoc($resultado);
+    }
+}
+
 ?>
   <main>
     
@@ -33,12 +43,12 @@ $resultado2 = mysqli_query($conn, $sql2);
 
           </select>
           <label for="">Data da entrega</label>
-          <input type="date" name="DataEntrega" placeholder="Data da Entrega" required>
-          <input type="number" name="Quantidade" placeholder="Quantidade Produzida" required>
+          <input type="date" name="DataEntrega" placeholder="Data da Entrega" value="<?php echo $dado ? $dado['Ramal'] : ''?>" required>
+          <input type="number" name="Quantidade" placeholder="Quantidade Produzida" value="<?php echo $dado ? $dado['Ramal'] : ''?>"required>
           <button type="submit">Salvar</button>
         </form>
       </div>
-   
+  
   </main>
   <?php 
   // include dos arquivos

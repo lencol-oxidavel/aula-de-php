@@ -12,6 +12,15 @@ $resultado1 = mysqli_query($conn, $sql1);
 // query do cargos
 $resultado2 = mysqli_query($conn, $sql2);
 
+$dado = null;
+if (isset($_GET['id'])) {
+    $id = (int) $_GET['id'];
+    $sql = "SELECT * FROM funcionarios WHERE FuncionarioID = $id";
+    $resultado = mysqli_query($conn, $sql);
+    if ($resultado && mysqli_num_rows($resultado) > 0) {
+        $dado = mysqli_fetch_assoc($resultado);
+    }
+}
 
 ?>
 
@@ -21,20 +30,23 @@ $resultado2 = mysqli_query($conn, $sql2);
 
     <div id="funcionarios" class="tela">
         <form class="crud-form" action="./action/funcionarios.php" method="post">
-          <h2>Cadastro de Funcionários</h2>
-          <input type="hidden" name="acao" value="salvar">
-          <input type="text" name="Nome" placeholder="Nome" required>
-          <input type="date" name="DataNascimento" placeholder="Data de Nascimento" required>
-          <input type="email" name="Email" placeholder="Email" required>
-          <input type="number" name="Salario" placeholder="Salário" required>
-          <input type="number" name="Ramal" placeholder="Ramal" required>
-          <select name="Sexo" required>
+          <h2><?php echo $dado ? 'editar funcionarios' : 'Cadastrar Funcionarios'?></h2>
+          <input type="hidden" name="acao" value="<?php echo $dado ? 'editar' : 'salvar'?>">
+          <?php if ($dado): ?>
+            <input type="hidden" name="FuncionarioID" value="<?php echo $dado['FuncionarioID']; ?>">
+          <?php endif; ?>
+          <input type="text" name="Nome" placeholder="Nome" value="<?php echo $dado ? $dado['Nome'] : ''?>" required>
+          <input type="date" name="DataNascimento" placeholder="Data de Nascimento" value="<?php echo $dado ? $dado['DataNascimento'] : ''?>" required>
+          <input type="email" name="Email" placeholder="Email" value="<?php echo $dado ? $dado['Email'] : ''?>" required>
+          <input type="number" name="Salario" placeholder="Salário" value="<?php echo $dado ? $dado['Salario'] : ''?>" required>
+          <input type="number" name="Ramal" placeholder="Ramal" value="<?php echo $dado ? $dado['Ramal'] : ''?>" required>
+          <select name="Sexo"  required>
             <option value="" disabled selected>Sexo</option>
             <option value="M">Masculino</option>
             <option value="F">Feminino</option>
           </select>
-          <input type="text" name="CPF" placeholder="CPF" required>
-          <input type="text" name="RG" placeholder="RG" required>
+          <input type="text" name="CPF" placeholder="CPF" value="<?php echo $dado ? $dado['CPF'] : ''?>" required>
+          <input type="text" name="RG" placeholder="RG" value="<?php echo $dado ? $dado['RG'] : ''?>" required>
           <select name="Cargo" required>
             <option value="" disabled selected>Cargo</option>
             

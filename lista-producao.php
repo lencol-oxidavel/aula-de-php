@@ -35,8 +35,8 @@ $resultado = mysqli_query($conn, $sql);
                 <td><?php echo $dado['DataProducao']?></td>
                 <td><?php echo $dado['DataEntrega']?></td>
                 <td>
-                  <a href="#" class="btn btn-edit">Editar</a>
-                  <a href="#" class="btn btn-delete">Excluir</a>
+                  <a href="./salvar-producao.php?id=<?php echo $dado['ProdutoID']?>" class="btn btn-edit">Editar</a>
+                  <a href="./action/producao.php?acao=excluir&id=<? echo $dadp['ProdutoID']?>" class="btn btn-delete">Excluir</a>
                 </td>
               </tr>
             <?php

@@ -27,8 +27,8 @@ if (isset($_GET['id'])) {
       <?php if ($dado): ?>
         <input type="hidden" name="CargoID" value="<?php echo $dado['CargoID']; ?>">
       <?php endif; ?>
-      <input type="text" name="Nome" placeholder="Nome do Cargo" required>
-      <input type="number" name="TetoSalarial" placeholder="Teto Salarial" required>
+      <input type="text" name="Nome" placeholder="Nome do Cargo" value="<?php echo $dado ? $dado['Nome'] : ''?>" required>
+      <input type="number" name="TetoSalarial" placeholder="Teto Salarial" value="<?php echo $dado ? $dado['TetoSalarial'] : ''?>" required>
       <button type="submit">Salvar</button>
     </form>
   </div>

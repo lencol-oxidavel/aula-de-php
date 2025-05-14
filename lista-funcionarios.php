@@ -7,7 +7,8 @@ include_once './include/header.php';
 $sql = "SELECT f.FuncionarioID, f.Nome, cg.Nome AS Cargo, s.Nome AS Setor
 FROM funcionarios AS f
 INNER JOIN cargos AS cg ON cg.CargoID = f.CargoID
-INNER JOIN setor AS s ON s.SetorID = f.SetorID";
+INNER JOIN setor AS s ON s.SetorID = f.SetorID
+ORDER BY f.FuncionarioID";
 $resultado = mysqli_query($conn, $sql);
 ?>
 
